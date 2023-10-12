@@ -5,16 +5,16 @@
     1. dashboard that shows data, income and progress
 
 2. reviewer view
-    a. data object card:
-    a1. displays the data object {context,instruction,response,source}
-    a2. button accept (swipe right)
-    a3. button reject (swipe left)
-    a4. feedback (expands into a text field for feedback)
-    a5. refer to an expert button (expands into a field that takes the address or username of the expert, maybe suggestion list)
-    a6. skip
-    a7. status info such as rating, stats
-    a8. dashboard could be a tab or expand from status showing earnings, rating and so on
+    1. data object card:
+        1. displays the data object {context,instruction,response,source}
+        1. button accept (swipe right)
+        1. button reject (swipe left)
+        1. feedback (expands into a text field for feedback)
+        1. refer to an expert button (expands into a field that takes the address or username of the expert, maybe suggestion list)
+        1. skip
+    1. status info such as rating, stats
+    1. dashboard could be a tab or expand from status showing earnings, rating and so on
 
 3. dataset explorer view
-    a. search for datasets using graph protocol for a graph by description and tags
-    b. show a table of teaching data objects. dispute button next to an object that expands into a feedback field
+    1. search for datasets using graph protocol for a graph by description and tags
+    1. show a table of teaching data objects. dispute button next to an object that expands into a feedback field
