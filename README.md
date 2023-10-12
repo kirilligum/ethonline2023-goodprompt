@@ -1,5 +1,6 @@
 # GoodPrompt: transparent, decentralized, peer-reviewed data submission
 ![ux](visuals/ux.png)
+![ux](visuals/ux.svg)
 
 # UI
 1. author view:
