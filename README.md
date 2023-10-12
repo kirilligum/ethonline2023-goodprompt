@@ -40,7 +40,7 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | cross-chain        | connext, hyperlane, wormhole, axelar | --                       | --     | transfer data between chains (fvm), create our own cheaper data chain and transfer from it                      | 10        | 5        |
 | sign in            | Polygon ID                           | privacy id               | 2500   | login                                                                                                           | 4         | 4        |
 | lend               | spark                                | sparklend                | 4000   | authors and reviewers can get paid in usdc while the grant is in ETH                                            | 10        | 10       |
-| sign in            | Mask Nettwork                        | relationservice          | 6000   | connect totwitter and build a reputation                                                                        | 6         | 5        |
+| sign in            | Mask Nettwork                        | relationservice          | 6000   | connect to twitter and build a reputation                                                                       | 6         | 5        |
 
 
 
