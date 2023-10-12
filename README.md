@@ -5,6 +5,11 @@ We introduce an on-chain peer-review process for AI training data. The process e
 ![ux](visuals/ux.svg)
 
 # UI
+1. Grant creation view:
+    1. input text: name
+    1. input text: description / motivation
+    1. input text: constitution / guide
+    1. input text x3: examples
 1. author view:
 
     1. manual: enter  context,instruction,response,source
@@ -34,7 +39,7 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | wallet abstraction | Cometh                               | Mobile dApps             | 1000   | easier login and interaction with the chain without signing every transaction                                   | 6         | 1        |
 | manage key-pairs   | Lit Protocol                         | Programmatic Signing     | 2000   | revealing votes after everyone voted or enough time has passed                                                  | 6         | 1        |
 | notification       | Push Protocol                        | Pushing boundaries / All | 1200   | notify reviewers that they were chosen through notification or chat. can also use gating for approved reviewers | 3         | 2        |
-| llm & filestorage  | Filecoin                             | Grand Prize              | 2500   | create structured promp0t data objects with lillypad fastchat, fvm to programatically create a dataset          | 10        | 3        |
+| llm & filestorage  | Filecoin                             | Grand Prize              | 2500   | create structured prompt data objects with lillypad fastchat, fvm to programatically create a dataset           | 10        | 3        |
 | llm distance       | cartesi (no-sponsor)                 | --                       | --     | check distance of the new submission to encourage diversity and alignment                                       | 7         | 3        |
 | sign in            | Sismo                                | overall                  | 2500   | sign in with min followers on github or twitter and maybe some privacy                                          | 10        | 4        |
 | cross-chain        | connext, hyperlane, wormhole, axelar | --                       | --     | transfer data between chains (fvm), create our own cheaper data chain and transfer from it                      | 10        | 5        |
