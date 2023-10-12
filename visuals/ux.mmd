@@ -1,8 +1,10 @@
 sequenceDiagram
   actor a as Author
   participant b as Blockchain
-  actor r as Reviewers
+  actor r1 as Reviewer 1
+  actor r2 as Reviewer 2
   a ->> b: data object<br/>{instruction, response, source}
   b ->> b: pick reviewers
-  r ->> b: vote:<br/>accept OR reject OR feedback OR refer OR skip
+  r1 ->> b: vote:<br/>accept OR reject OR feedback OR refer OR skip
+  r2 ->> b: vote:<br/>accept OR reject OR feedback OR refer OR skip
   b ->> b: decision
