@@ -1,3 +1,7 @@
+# GoodPrompt: transparent, decentralized, peer-reviewed data submission
+
+
+# UI
 1. author view:
 
     1. manual: enter  context,instruction,response,source
