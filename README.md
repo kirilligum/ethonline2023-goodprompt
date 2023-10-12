@@ -34,11 +34,11 @@ Compensation for authors and reviewers will be governed by a smart-contract base
 
 # Bounties
 
-| category           | sponsor       | prize                    | amount | our fit                                                                       |
-|--------------------|---------------|--------------------------|--------|-------------------------------------------------------------------------------|
-| wallet abstraction | Cometh        | The smoothest UX         | 3000   | easier login and interaction with the chain without signing every transaction |
-| wallet abstraction | Cometh        | Mobile dApps             | 3000   | easier login and interaction with the chain without signing every transaction |
-| manage key-pairs   | Lit Protocol  | Programmatic Signing     | 2000   | revealing votes after everyone voted or enough time has passed                |
-| notification       | Push Protocol | Pushing boundaries / All | 1200   | notify reviewers that they were chosen through notification or chat           |
+| category           | sponsor       | prize                    | amount | our fit                                                                                                         |
+|--------------------|---------------|--------------------------|--------|-----------------------------------------------------------------------------------------------------------------|
+| wallet abstraction | Cometh        | The smoothest UX         | 3000   | easier login and interaction with the chain without signing every transaction                                   |
+| wallet abstraction | Cometh        | Mobile dApps             | 1000   | easier login and interaction with the chain without signing every transaction                                   |
+| manage key-pairs   | Lit Protocol  | Programmatic Signing     | 2000   | revealing votes after everyone voted or enough time has passed                                                  |
+| notification       | Push Protocol | Pushing boundaries / All | 1200   | notify reviewers that they were chosen through notification or chat. can also use gating for approved reviewers |
 
 
