@@ -4,6 +4,6 @@ sequenceDiagram
   actor r as Reviewers
   a ->> b: {instruction, response, source}
   b ->> b: pick reviewers
-  b ->> r: reqest to review \n{instruction, response, source}
+  b ->> r: reqest to review<br/>{instruction, response, source}
   r ->> b: vote
   b ->> b: decision
