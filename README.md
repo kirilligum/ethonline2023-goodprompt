@@ -1,8 +1,8 @@
 1. author view:
 
-    a. manual: enter  context,instruction,response,source
-    b. LLM parsing: drop in a file (discord or emails) and LLM figures out the list of data points {context,instruction,response,source}
-    c. dashboard that shows data, income and progress
+    1. manual: enter  context,instruction,response,source
+    1. LLM parsing: drop in a file (discord or emails) and LLM figures out the list of data points {context,instruction,response,source}
+    1. dashboard that shows data, income and progress
 
 2. reviewer view
     a. data object card:
