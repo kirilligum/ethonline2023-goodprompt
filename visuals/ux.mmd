@@ -1,7 +1,7 @@
 sequenceDiagram
   actor a as Author
-  actor r as Reviewers
   participant b as Blockchain
+  actor r as Reviewers
   a ->> b: data object
   b ->> b: pick reviewers
   b ->> r: data object
