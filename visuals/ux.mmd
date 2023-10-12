@@ -4,6 +4,5 @@ sequenceDiagram
   actor r as Reviewers
   a ->> b: data object<br/>{instruction, response, source}
   b ->> b: pick reviewers
-  b ->> r: reqest to review
-  r ->> b: vote
+  r ->> b: vote:<br/>accept OR reject OR feedback OR refer OR skip
   b ->> b: decision
