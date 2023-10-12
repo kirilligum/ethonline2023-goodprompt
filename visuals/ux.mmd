@@ -1,14 +1,9 @@
 sequenceDiagram
-    Alice->>Bob: Hello Bob, how are you ?
-    Bob->>Alice: Fine, thank you. And you?
-    create participant Carl
-    Alice->>Carl: Hi Carl!
-    create actor D as Donald
-    Carl->>D: Hi!
-    destroy Carl
-    Alice-xCarl: We are too many
-    destroy Bob
-    Bob->>Alice: 
-
-
-
+  actor a as Author
+  actor r as Reviewers
+  participant b as Blockchain
+  a ->> b: data object
+  b ->> b: pick reviewers
+  b ->> r: data object
+  r ->> b: review
+  b ->> b: consensus
