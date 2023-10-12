@@ -34,8 +34,10 @@ Compensation for authors and reviewers will be governed by a smart-contract base
 
 # Bounties
 
-| category           | sponsor | prize            | amount | our fit                                                                       |
-|--------------------|---------|------------------|--------|-------------------------------------------------------------------------------|
-| wallet abstraction | Cometh  | The smoothest UX | 3000   | easier login and interaction with the chain without signing every transaction |
+| category           | sponsor      | prize                | amount | our fit                                                                       |
+|--------------------|--------------|----------------------|--------|-------------------------------------------------------------------------------|
+| wallet abstraction | Cometh       | The smoothest UX     | 3000   | easier login and interaction with the chain without signing every transaction |
+| manage key-pairs   | Lit Protocol | Programmatic Signing | 2000   | revealing votes after everyone voted or enough time has passed                |
+|--------------------|--------------|----------------------|--------|-------------------------------------------------------------------------------|
 
 
