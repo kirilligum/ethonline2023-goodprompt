@@ -56,6 +56,7 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | sign in            | Safe                                 | aa                       | 2500   | auth-kit login with email, onramp-kit pay using creditcard                                                      | 5         | 4        |
 | voting             | UMA                                  | optimistic oracle        | 5000   | submit the data  object to UMA so they can handle disputes and voting                                           | 10        | 1        |
 | UX                 | Mantle                               | best UX                  | 1250   | deploy on Mantle                                                                                                | 2         | 2        |
+| application llm    | Compound                             | Compound community use   | 5000   | create data and grant specifically for compound                                                                 | 4         | 2        |
 
 
 
@@ -74,4 +75,5 @@ Tokens:
 | token   | prize amount | notes                           |
 |---------|--------------|---------------------------------|
 | ApeCoin | 3000         | consumer or innovative use case |
+| connext | 1500         | deploy and use xerc20
 
