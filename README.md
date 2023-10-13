@@ -52,6 +52,8 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | sign in            | Mask Nettwork                        | RelationService          | 6000   | connect to twitter and build a reputation                                                                       | 6         | 5        |
 | wallet abstraction | Safe                                 | protocol                 | 2500   | no signing swipes to keep nice ux or sign in the end                                                            | 4         | 2        |
 | sign in            | Safe                                 | aa                       | 2500   | auth-kit login with email, onramp-kit pay using creditcard                                                      | 5         | 4        |
+| voting             | UMA                                  | optimistic oracle        | 5000   | submit the data  object to UMA so they can handle disputes and voting                                           | 10        | 1        |
+| UX                 | Mantle                               | best UX                  | 1250   | deploy on Mantle                                                                                                | 2         | 2        |
 
 
 
@@ -61,7 +63,7 @@ Deployment chains:
 |---------|--------------|---------------------------------------------|
 | polygon | 2500         | public good with account abstraction {safe} |
 | scroll  | 2000         | zk evm should be trivial change of RPC      |
-|
+| Mantle  | 2.500 pool   | need to tweet                               |
 
 
 
