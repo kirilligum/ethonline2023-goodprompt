@@ -57,6 +57,7 @@ We introduce an on-chain peer-review process for AI training data. The process e
 
 
 
+
 Deployment chains:
 
 | chain   | prize amount | notes                                       |
@@ -66,4 +67,9 @@ Deployment chains:
 | Mantle  | 2.500 pool   | need to tweet                               |
 
 
+Tokens:
+
+| token   | prize amount | notes                           |
+|---------|--------------|---------------------------------|
+| ApeCoin | 3000         | consumer or innovative use case |
 
