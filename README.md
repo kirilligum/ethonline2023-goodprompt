@@ -63,6 +63,7 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | data               | graph                                | Best New Graph           | 1400   | index the onchain reviewing data and easily create the training dataset                                         | 7         | 2        |
 | compute            | chainlink                            | functions                | 1500   | use function to run llm or cos similarity                                                                       | 6         | 7        |
 | data               | tableland                            | studio                   | 1000   | put data into sql and createa the training dataset                                                              | 7         | 6        |
+| blind voting       | aztec                                | use noir library         | 2000   | use noir library to do blind voting                                                                             | 10        | 7        |
 
 
 
