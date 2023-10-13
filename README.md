@@ -5,11 +5,15 @@ We introduce an on-chain peer-review process for AI training data. The process e
 ![ux](visuals/ux.svg)
 
 # UI
-1. Grant creation view:
-    1. input text: name
-    1. input text: description / motivation
-    1. input text: constitution / guide
-    1. input text x3: examples
+1. Grant view:
+    1. create:
+        1. input text: name
+        1. input text: description / motivation
+        1. input text: constitution / guide
+        1. input text x3: examples
+        1. button: create a grant
+    1. add funds:
+        
 1. author view:
 
     1. manual: enter  context,instruction,response,source
@@ -44,8 +48,10 @@ We introduce an on-chain peer-review process for AI training data. The process e
 | sign in            | Sismo                                | overall                  | 2500   | sign in with min followers on github or twitter and maybe some privacy                                          | 10        | 4        |
 | cross-chain        | connext, hyperlane, wormhole, axelar | --                       | --     | transfer data between chains (fvm), create our own cheaper data chain and transfer from it                      | 10        | 5        |
 | sign in            | Polygon ID                           | privacy id               | 2500   | login                                                                                                           | 4         | 4        |
-| lend               | spark                                | sparklend                | 4000   | authors and reviewers can get paid in usdc while the grant is in ETH                                            | 10        | 10       |
-| sign in            | Mask Nettwork                        | relationservice          | 6000   | connect to twitter and build a reputation                                                                       | 6         | 5        |
+| lend               | spark                                | SparkLend                | 4000   | authors and reviewers can get paid in usdc while the grant is in ETH                                            | 10        | 10       |
+| sign in            | Mask Nettwork                        | RelationService          | 6000   | connect to twitter and build a reputation                                                                       | 6         | 5        |
+| wallet abstraction | Safe                                 | protocol                 | 2500   | no signing swipes to keep nice ux or sign in the end                                                            | 4         | 2        |
+| sign in            | Safe                                 | aa                       | 2500   | auth-kit login with email, onramp-kit pay using creditcard                                                      | 5         | 4        |
 
 
 
