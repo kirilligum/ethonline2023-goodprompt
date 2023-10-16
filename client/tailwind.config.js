@@ -2,12 +2,13 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [],
+  content: ['src/**/*.tsx'],
   theme: {
     extend: {
-      'body': ['Lekton', ...defaultTheme.fontFamily.body],
-      'mono': ['Lekton', ...defaultTheme.fontFamily.mono],
-      'sans': ['Lekton', ...defaultTheme.fontFamily.sans],
+      fontFamily: {
+        mono: ['Lekton', ...defaultTheme.fontFamily.mono],
+        sans: ['Gabarito', ...defaultTheme.fontFamily.sans],
+      }
     },
   },
   plugins: [],

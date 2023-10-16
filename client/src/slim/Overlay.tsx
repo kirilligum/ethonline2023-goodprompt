@@ -5,7 +5,7 @@ export default function Overlay({
   classNames = {},
   isVisible = true,
   className = "",
-  onClick = () => {},
+  onClick = () => { },
   children = null,
 }: {
   classNames?: Record<string, boolean>;
@@ -42,7 +42,6 @@ export default function Overlay({
         cn(
           Object.assign(
             {
-              "bg-flat-500": true,
               "opacity-0": !isVisible,
               "opacity-100": isVisible,
             },

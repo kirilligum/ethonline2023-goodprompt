@@ -39,18 +39,18 @@ export default function Modal({
   useRight = false,
   useTop = false,
   useBottom = false,
-  children = undefined,
+  children = null,
   positionRef = undefined,
   isActive = false,
-  bgClassName = "",
-  closeModal = () => {},
-  className = "",
+  classNames = {},
+  closeModal = () => { },
   title = undefined,
 }) {
   let [use_style_pos, setStylePos] = useState({});
   let [window_width, setWindowWidth] = useState(window.innerWidth);
   let [timer, setTimer] = useState(false);
   let modal_ref = useRef(null);
+
 
   useEffect(() => {
     var timeout_fn: any = null;
@@ -74,10 +74,10 @@ export default function Modal({
   function computeStyle() {
     let style_pos: any =
       !!positionRef &&
-      (useBottomUpCenter || useLeft || useRight || useBottom || useTop)
+        (useBottomUpCenter || useLeft || useRight || useBottom || useTop)
         ? {
-            position: "absolute",
-          }
+          position: "absolute",
+        }
         : {};
 
     if (positionRef) {
@@ -138,10 +138,7 @@ export default function Modal({
     <Transition appear show={isActive} as={Fragment}>
       <Dialog
         as="div"
-        className={
-          "relative z-10 cursor-crosshair " +
-          cn({ "pointer-events-none": isTransparent })
-        }
+        className={cn("relative z-10 cursor-crosshair ", { "pointer-events-none": isTransparent })}
         onClose={closeModal}
       >
         <Transition.Child
@@ -153,15 +150,8 @@ export default function Modal({
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div
-            className={
-              bgClassName +
-              // " fixed inset-0 bg-neutral-400 bg-opacity-60 backdrop-blur-md"
-              " fixed inset-0 bg-neutral-400 bg-opacity-90 "
-            }
-          />
+          <div className={cn(classNames.overlay, "fixed inset-0 bg-neutral-400 bg-opacity-90")} />
         </Transition.Child>
-
         <div className="fixed inset-0 overflow-y-auto overflow-x-hidden">
           <div className="flex min-h-full items-end md:items-center justify-center md:p-4 text-center">
             <Transition.Child
@@ -177,10 +167,7 @@ export default function Modal({
                 style={use_style_pos}
                 className="fixed transform transition-all"
               >
-                <div
-                  ref={modal_ref}
-                  className="w-fit h-fit cursor-auto pointer-events-auto max-h-[90vh]"
-                >
+                <div ref={modal_ref} className="w-fit h-fit cursor-auto pointer-events-auto max-h-[90vh]">
                   {children}
                 </div>
               </Dialog.Panel>
