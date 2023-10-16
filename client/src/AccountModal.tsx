@@ -14,7 +14,7 @@ let slimSupabaseClassNames = {
   container: 'flex flex-col items-center justify-center h-auto text-stone-300 font-sans my-2',
   divider: '',
   label: 'text-stone-400 text-sm flex justify-left ml-4 ',
-  input: 'mb-4 bg-stone-800 py-3 px-5 rounded-2xl outline-stone-600 hover:bg-stone-700 focus:outline hover:outline outline-4 text-stone-200 flex items-center justify-center m-1 placeholder-stone-500',
+  input: 'transition-all placeholder-stone-600 bg-stone-800 font-bold py-3 px-5 rounded-2xl outline-transparent hover:outline-stone-600 focus:bg-stone-600 hover:bg-stone-700 focus:outline outline outline-4 flex items-center justify-center m-2 gap-3',
   loader: '',
   message: ''
 }
@@ -40,8 +40,8 @@ export default function LoginModal({ isActive, classNames = {} }) {
   return <Modal isActive={true} classNames={{
     overlay: 'bg-stone-200',
   }}>
-    <ResponsivePanelWrapper className="w-[30em] max-w-full min-h-[300px]">
-      <Panel className=' bg-stone-900 outline-stone-300 w-full h-full'>
+    <ResponsivePanelWrapper className="max-w-full min-h-[300px] w-screen md:w-[30em]">
+      <Panel className=' bg-stone-900 outline-stone-400 w-full h-full rounded-none md:rounded-3xl'>
         <Auth supabaseClient={supabase} appearance={{ extend: false, className: { ...slimSupabaseClassNames, ...classNames } }} />
       </Panel>
     </ResponsivePanelWrapper>
