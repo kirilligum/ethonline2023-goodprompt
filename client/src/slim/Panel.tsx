@@ -5,7 +5,7 @@ var Panel = forwardRef(({ className, children, style = {} }, ref) => {
     <div
       ref={ref}
       style={style}
-      className={cn(className, "bg-flat-500 invertScrollbars outline outline-4 rounded-3xl relative overflow-hidden md:p-4 p-2")}
+      className={cn(className, "outline outline-4 relative overflow-hidden md:p-4 p-2 rounded-none md:rounded-3xl")}
     >
       {children}
     </div>
