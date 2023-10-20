@@ -3,3 +3,69 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.-ii-fidget {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	height: 200px;
+	width: 200px;
+	transform: translate(-49.5%, -51%) scale(0.3);
+	background: black;
+	-webkit-filter: contrast(18);
+	overflow: hidden;
+	transition: ease;
+}
+
+.-ii-fidget-b {
+	-webkit-filter: blur(12px);
+	background: rgb(255, 255, 255);
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	left: calc(50% - 25px);
+	top: calc(50% - 10px);
+}
+
+.-ii-fidget-b1 {
+	animation: -ii-fidget-rotate .75s infinite;
+	transform-origin: 25px 0px;
+}
+
+.-ii-fidget-b2 {
+	animation: -ii-fidget-rotate .75s infinite;
+	/* transform-origin: 30px; */
+	transform-origin: 0px 25px;
+	left: calc(50% - 25px);
+	top: calc(50% - 20px);
+	width: 40px;
+	height: 40px;
+}
+
+.-ii-fidget-none {
+	animation: -ii-fidget-rotate .75s !important;
+}
+
+@keyframes -ii-fidget-rotate {
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(-360deg);
+	}
+}
+
+@keyframes -ii-fidget-rotate2 {
+	0% {
+		transform: rotate(0deg);
+		scale: 0.0;
+	}
+
+	100% {
+		transform: rotate(-360deg);
+		scale: 0.0;
+	}
+}

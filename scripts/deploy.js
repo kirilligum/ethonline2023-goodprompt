@@ -1,11 +1,11 @@
 const hre = require("hardhat");
 
 async function main() {
-  const JsonStorage = await hre.ethers.getContractFactory("JsonStorage");
-  const jsonStorage = await JsonStorage.deploy();
-  await jsonStorage.deployed();
+  const Contract = await hre.ethers.getContractFactory("Contract");
+  const contract = await Contract.deploy();
+  await contract.deployed();
 
-  console.log("JsonStorage deployed to:", jsonStorage.address);
+  console.log("Contract deployed to:", contract.address);
 }
 
 main()
