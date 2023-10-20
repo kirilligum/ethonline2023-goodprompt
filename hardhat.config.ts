@@ -9,6 +9,7 @@ const config: HardhatUserConfig = {
     mumbai: {
       url: "https://rpc-mumbai.matic.today", // Polygon Mumbai RPC URL
       accounts: {
+        // key: process.env.PRIVATE_KEY as string // Replace with your private key
         mnemonic: process.env.MNEMOMIC_PHRASE, // Replace with your mnemonic phrase
       },
     },
