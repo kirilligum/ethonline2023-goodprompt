@@ -14,8 +14,11 @@ contract("GoodpromptRegistry", accounts => {
 		await goodpromptRegistry.storeHash(ipfsHash, { from: accounts[0] });
 
 		// Retrieve the stored IPFS hash
-		const retrievedHash = await goodpromptRegistry.retrieveHash(0);
+		const retrievedHash = await goodpromptRegistry.retrieveHashAndOwner(0);
+		let hash = retrievedHash[0]
+		let owner = retrievedHash[1]
 
-		assert.strictEqual(retrievedHash, ipfsHash, "IPFS hash doesn't match");
+		assert.strictEqual(hash, ipfsHash, "hash doesn't match");
+		assert.strictEqual(owner, accounts[0], "owner doesn't match");
 	});
 });

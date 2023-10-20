@@ -17,7 +17,7 @@ contract GoodpromptRegistry {
         hashEntries.push(newEntry);
     }
 
-    function retrieveHash(
+    function retrieveHashAndOwner(
         uint256 index
     ) public view returns (string memory, address) {
         require(index < hashEntries.length, "Index out of bounds");
