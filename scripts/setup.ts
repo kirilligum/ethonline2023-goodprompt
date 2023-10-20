@@ -1,24 +1,16 @@
-
 const Web3 = require('web3');
 require('dotenv/config');
-
-// Replace with your Alchemy API key and Ethereum network
-const alchemyApiKey = proccess.env.ALCHEMY_API_KEY;
+const axios = require('axios');
+const alchemyApiKey = process.env.ALCHEMY_API_KEY;
 const networkUrl = 'https://eth-mainnet.alchemyapi.io/v2/' + alchemyApiKey; // Replace with the appropriate Alchemy network URL
-
 const web3 = new Web3(new Web3.providers.HttpProvider(networkUrl));
-
-// Specify the contract address and ABI
-const contractAddress = CONTRACT_ADDRESS;
-const contractABI = [
-	// Your contract's ABI here
-];
-
-// Create a contract instance
+const privateKey = process.env.PRIVATE_KEY;
+const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+web3.eth.accounts.wallet.add(account);
+web3.eth.defaultAccount = account.address;
+const contractAddress = process.env.CONTRACT_ADDRESS;
+const contractABI = require('./GoodpromptRegistry.json').abi
 const contract = new web3.eth.Contract(contractABI, contractAddress);
-
-// Specify the transaction parameters
-const fromAddress = process.env.YOUR_WALLET_ADDRESS; // The address associated with the private key
 
 let test_data = {
 	source: 'main',
@@ -58,13 +50,11 @@ async function uploadToPinata() {
 
 	const ipfsHash = response.data.IpfsHash;
 
-	contract.methods.setIPFSHash(ipfsHash)
-		.send({ from: 'YOUR_WALLET_ADDRESS' })
+	contract.methods.storeHash(ipfsHash)
+		.send({ from: process.env.WALLET_ADDRESS, gas: 3000000 })
 		.then((receipt) => {
 			console.log('Transaction Receipt:', receipt);
 		});
-
-
 }
 
 uploadToPinata();
