@@ -7,7 +7,7 @@ export default function App() {
 
 
   return <div className='w-full'>
-    <AccountModal classNames={{}}></AccountModal>
+    <AccountModal />
   </div>
 }
 
