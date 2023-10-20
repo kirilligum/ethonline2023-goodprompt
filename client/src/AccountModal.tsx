@@ -67,7 +67,7 @@ export default function AccountModal({ isActive, classNames = {}, setAuth }) {
   useEffect(() => {
     async function init() {
 
-      let chain = getChain('0x5')
+      let chain = getChain('0x13881')
 
 
       const web3AuthModalPack = new Web3AuthModalPack({

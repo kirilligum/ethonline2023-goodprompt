@@ -1,4 +1,6 @@
+
 const Web3 = require('web3');
+require('dotenv/config');
 
 // Replace with your Alchemy API key and Ethereum network
 const alchemyApiKey = proccess.env.ALCHEMY_API_KEY;
@@ -16,7 +18,7 @@ const contractABI = [
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
 // Specify the transaction parameters
-const fromAddress = 'YOUR_WALLET_ADDRESS'; // The address associated with the private key
+const fromAddress = process.env.YOUR_WALLET_ADDRESS; // The address associated with the private key
 
 let test_data = {
 	source: 'main',

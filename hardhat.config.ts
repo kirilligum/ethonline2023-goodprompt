@@ -1,16 +1,16 @@
 import { HardhatUserConfig } from "hardhat/config";
 import "@nomicfoundation/hardhat-toolbox";
-//use dot env
 import 'dotenv/config'
 
 const config: HardhatUserConfig = {
   solidity: "0.8.19",
   networks: {
     mumbai: {
-      url: "https://rpc-mumbai.matic.today", // Polygon Mumbai RPC URL
+      url: "https://polygon-mumbai.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY,
+      gasPrice: 8000000000,
+      chainId: 80001,
       accounts: {
-        // key: process.env.PRIVATE_KEY as string // Replace with your private key
-        mnemonic: process.env.MNEMOMIC_PHRASE, // Replace with your mnemonic phrase
+        mnemonic: process.env.MNEMONIC, // Corrected spelling
       },
     },
   }

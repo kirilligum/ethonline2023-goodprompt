@@ -1,15 +1,14 @@
-const hre = require("hardhat");
+import { ethers } from "hardhat";
 
 async function main() {
-  const GoodpromptRegistry = await hre.ethers.getContractFactory("GoodpromptRegistry");
-  const contract = await GoodpromptRegistry.deploy();
+
+  const contract = await ethers.deployContract('GoodpromptRegistry', {
+    gasLimit: 1000000
+  });
 
   await contract.waitForDeployment();
 
-
-  console.log(contract)
-
-  console.log("Contract deployed to:", contract.address);
+  console.log("Contract deployed", contract);
 }
 
 main()

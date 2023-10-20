@@ -1,16 +1,14 @@
 {
   "scripts": {
-    "deploy": "npx hardhat run scripts/deploy.js",
-    "setup": "npx hardhat run scripts/setup.js",
+    "deploy": "npx hardhat run --network mumbai scripts/deploy.ts",
+    "setup": "npx hardhat run scripts/setup.ts",
     "test": "truffle test"
   },
-  "devDependencies": {
-    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
-    "hardhat": "^2.18.1"
-  },
+  "devDependencies": {},
   "dependencies": {
     "@web3auth/base": "^7.0.4",
     "@web3auth/no-modal": "^7.0.4",
+    "hardhat": "^2.18.2",
     "dotenv": "^16.3.1",
     "usehooks-ts": "^2.9.1"
   }
