@@ -9,9 +9,7 @@ const config: HardhatUserConfig = {
       url: "https://polygon-mumbai.g.alchemy.com/v2/" + process.env.ALCHEMY_API_KEY,
       gasPrice: 8000000000,
       chainId: 80001,
-      accounts: {
-        mnemonic: process.env.MNEMONIC, // Corrected spelling
-      },
+      accounts: [process.env.PRIVATE_KEY]
     },
   }
 };

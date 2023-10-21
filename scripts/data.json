@@ -1,0 +1,21 @@
+{
+	source: 'main',
+	data: [
+		{
+			instruction: "what is 1 + 1 ?",
+			response: "2",
+		},
+		{
+			instruction: "what is 1 + 2 ?",
+			response: "3",
+		},
+		{
+			instruction: "what is 1 + 4 ?",
+			response: "3",
+		},
+		{
+			instruction: "what is 2 + 4 ?",
+			response: "5",
+		},
+	]
+}

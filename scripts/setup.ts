@@ -1,60 +1,44 @@
-const Web3 = require('web3');
+const { Web3 } = require('web3');
 require('dotenv/config');
 const axios = require('axios');
 const alchemyApiKey = process.env.ALCHEMY_API_KEY;
-const networkUrl = 'https://eth-mainnet.alchemyapi.io/v2/' + alchemyApiKey; // Replace with the appropriate Alchemy network URL
-const web3 = new Web3(new Web3.providers.HttpProvider(networkUrl));
-const privateKey = process.env.PRIVATE_KEY;
-const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-web3.eth.accounts.wallet.add(account);
-web3.eth.defaultAccount = account.address;
+const networkUrl = 'https://polygon-mumbai.g.alchemy.com/v2/' + alchemyApiKey; // Replace with the appropriate Alchemy network URL
+const web3 = new Web3(networkUrl);
 const contractAddress = process.env.CONTRACT_ADDRESS;
 const contractABI = require('./GoodpromptRegistry.json').abi
 const contract = new web3.eth.Contract(contractABI, contractAddress);
 
-let test_data = {
-	source: 'main',
-	data: [
-		{
-			instruction: "what is 1 + 1 ?",
-			response: "2",
-		},
-		{
-			instruction: "what is 1 + 2 ?",
-			response: "3",
-		},
-		{
-			instruction: "what is 1 + 4 ?",
-			response: "3",
-		},
-		{
-			instruction: "what is 2 + 4 ?",
-			response: "5",
-		},
-	]
-}
+
+const fs = require('fs');
+const pinataSDK = require('@pinata/sdk');
+const pinata = new pinataSDK({ pinataJWTKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySW5mb3JtYXRpb24iOnsiaWQiOiJhYWMwMmNkNS04ZGFiLTRiNWQtOWE0NS1kNmY5YmM3ZGJmY2UiLCJlbWFpbCI6InBvb2Z5aXFAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOnRydWUsInBpbl9wb2xpY3kiOnsicmVnaW9ucyI6W3siaWQiOiJGUkExIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9LHsiaWQiOiJOWUMxIiwiZGVzaXJlZFJlcGxpY2F0aW9uQ291bnQiOjF9XSwidmVyc2lvbiI6MX0sIm1mYV9lbmFibGVkIjpmYWxzZSwic3RhdHVzIjoiQUNUSVZFIn0sImF1dGhlbnRpY2F0aW9uVHlwZSI6InNjb3BlZEtleSIsInNjb3BlZEtleUtleSI6ImUyMzFlMTdkM2UyNGZkNDU0MTJiIiwic2NvcGVkS2V5U2VjcmV0IjoiYTU2MWIzODRjNzUwYmVhNGYzYTBjZTg3YWZiZTYwN2JkMTI5ZTNlZWNlMzVjYTg1YWU0NTU2ZWVmOWI3ZjllZiIsImlhdCI6MTY5Nzg0NjQ0MH0.TpSmfG7OZrL1Z3bEP33W4tVa-U6Lcg2KoSbcwMXe_ZQ' });
+const stream = fs.createReadStream('./scripts/data.json');
+
 
 async function uploadToPinata() {
-	const pinataApiKey = 'a451efa4864d6a2fa1a1';
-	const pinataSecretApiKey = '7f1b5225fd017eaf979e8aa3b6bf5c14fd1bf44ff8d28055bde3c65e4e274b53';
-	const jsonContent = test_data
 
-	const response = await axios.post('https://api.pinata.cloud/pinning/pinFileToIPFS', jsonContent, {
-		headers: {
-			'Content-Type': 'application/json',
-			'pinata_api_key': pinataApiKey,
-			'pinata_secret_api_key': pinataSecretApiKey,
-		},
-	});
+	const res = await pinata.pinFileToIPFS(stream, {
+		pinataMetadata: {
+			name: 'data.json',
+		}
+	})
+	const methodCall = contract.methods.storeHash('QmUStpAPwfPr2dYNLtvWzQD1UgsHmozD8ubEgeC4xPfmSN'); // Replace with your method and parameters
+	const encodedABI = methodCall.encodeABI();
+
+	const balance = await web3.eth.getBalance(process.env.WALLET_ADDRESS);
+	console.log('Balance:', balance);
+
+	const tx = {
+		to: contractAddress,
+		gasPrice: 1000000,
+		data: encodedABI,
+		from: process.env.WALLET_ADDRESS,
+	};
+
+	const signedTx = await web3.eth.accounts.signTransaction(tx, process.env.PRIVATE_KEY);
+	const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
+	console.log('Transaction receipt:', receipt);
 
 
-	const ipfsHash = response.data.IpfsHash;
-
-	contract.methods.storeHash(ipfsHash)
-		.send({ from: process.env.WALLET_ADDRESS, gas: 3000000 })
-		.then((receipt) => {
-			console.log('Transaction Receipt:', receipt);
-		});
 }
-
 uploadToPinata();

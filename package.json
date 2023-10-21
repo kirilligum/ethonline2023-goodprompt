@@ -5,12 +5,15 @@
     "test": "truffle test"
   },
   "dependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "@pinata/sdk": "^2.1.0",
     "@web3auth/base": "^7.0.4",
     "@web3auth/no-modal": "^7.0.4",
     "bip39": "^3.1.0",
     "dotenv": "^16.3.1",
     "ethereumjs-wallet": "^1.0.2",
     "hardhat": "^2.18.2",
-    "usehooks-ts": "^2.9.1"
+    "usehooks-ts": "^2.9.1",
+    "web3": "^4.2.0"
   }
 }
