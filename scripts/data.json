@@ -1,21 +1,21 @@
 {
-	source: 'main',
-	data: [
+	"sponsor": "gor:0x44B68671f9123d1fe8a33F7109C54e2E7Addee48",
+	"data": [
 		{
-			instruction: "what is 1 + 1 ?",
-			response: "2",
+			"instruction": "what is 1 + 1 ?",
+			"response": "2"
 		},
 		{
-			instruction: "what is 1 + 2 ?",
-			response: "3",
+			"instruction": "what is 1 + 2 ?",
+			"response": "3"
 		},
 		{
-			instruction: "what is 1 + 4 ?",
-			response: "3",
+			"instruction": "what is 1 + 4 ?",
+			"response": "3"
 		},
 		{
-			instruction: "what is 2 + 4 ?",
-			response: "5",
-		},
+			"instruction": "what is 2 + 4 ?",
+			"response": "5"
+		}
 	]
 }

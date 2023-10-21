@@ -1,5 +1,5 @@
 import './index.css'
-import AccountModal from './AccountModal'
+import AccountModal from './modals/AccountModal'
 
 
 export default function App() {

@@ -1,0 +1,11 @@
+{
+	"name": "YourAppName",
+	"description": "A description of what your app do",
+	"icons": [
+		{
+			"src": "/myAppIcon.svg",
+			"type": "image/svg+xml",
+			"sizes": "any"
+		}
+	]
+}
