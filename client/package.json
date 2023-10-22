@@ -26,6 +26,7 @@
     "@web3auth/ethereum-provider": "^7.0.4",
     "@web3auth/no-modal": "^7.0.4",
     "autoprefixer": "^10.4.16",
+    "bluebird": "^3.7.2",
     "browserify-zlib": "^0.2.0",
     "buffer": "^6.0.3",
     "classnames": "^2.3.2",
@@ -44,6 +45,7 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.0.2",
     "util": "^0.12.5",
-    "vite": "^4.4.5"
+    "vite": "^4.4.5",
+    "web3": "^4.2.0"
   }
 }

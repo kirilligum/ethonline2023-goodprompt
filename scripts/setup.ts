@@ -38,7 +38,6 @@ async function uploadToPinata() {
 	const signedTx = await web3.eth.accounts.signTransaction(tx, process.env.PRIVATE_KEY);
 	const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);
 	console.log('Transaction receipt:', receipt);
-
-
 }
+
 uploadToPinata();
