@@ -22,6 +22,7 @@ export default function useInterface() {
 	useEffect(() => {
 		if (!contract) return;
 		async function fetchDatasets() {
+			setIsFetchingData(true)
 			let obj_count = await contract.getDatasetCount()
 			let objects = []
 			objects.length = obj_count.toNumber()
@@ -48,6 +49,7 @@ export default function useInterface() {
 
 			console.log('DATASETS', datasets);
 			setDatasets(datasets)
+			setIsFetchingData(false)
 		}
 
 		fetchDatasets();
