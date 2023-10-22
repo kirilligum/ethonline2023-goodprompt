@@ -2,7 +2,7 @@ import MotionBox from '../slim/MotionBox'
 import StatusDot from '../slim/StatusDot'
 
 import useSafe from '../hooks/useSafe'
-import useContract from '../hooks/useInterface'
+import useInterface from '../hooks/useInterface'
 
 import { Check, LogIn, Plus, X } from 'react-feather'
 
@@ -19,36 +19,36 @@ import { motion } from 'framer-motion';
 export default function TuneModal() {
 
 	const { isLoading, safeAddress } = useSafe()
-	const { isFetchingData, datasets } = useContract()
+	const { isFetchingData, datasets } = useInterface()
 	const [index, setIndex] = useState(0)
 	const [groupIndex, groupSetIndex] = useState(0)
 
 	let data_point = undefined
 	if (datasets) {
-		data_point = datasets[groupIndex].datasets[index]
+		console.log(datasets)
+		data_point = datasets[groupIndex]?.dataset.data[index]
 	}
-	// console.log(data_point)
 
-	console.log(data_point)
 
-	// let current_content = <div className='w-full h-full flex'>
-	// 	<div>instruction:{data_point}</div>
-	// 	<div>response:{data_point}</div>
-	// </div>
 
 
 	let current_content = <>{data_point &&
 		<div className='w-full h-full flex items-center justify-center'>
 			{isFetchingData ? <StatusDot status={'loading'} className='w-6 h-6' /> : null}
 			{!isFetchingData && <div className='flex flex-col'>
-				<div>instruction:{data_point}</div>
-				<div>response:{data_point}</div>
+				<div className='flex flex-col text-xl'>
+					<div className='text-sm'>instruction</div>
+					{data_point.instruction}
+				</div>
+
+				<div className='flex flex-col text-xl mt-5'>
+					<div className='text-sm'>response</div>
+					{data_point.response}
+				</div>
 			</div>}
 		</div>
 	}
 	</>
-
-
 
 
 	let prev_box_pox = isLoading ? 'fixed w-[20em] h-[4em] left-1/2 top-[20em] -translate-y-1/2 -translate-x-1/2' : 'fixed w-14 h-14 left-[10em] top-[28em] -translate-y-1/2 -translate-x-1/2'
@@ -61,7 +61,6 @@ export default function TuneModal() {
 		position: prev_box_pox,
 		box: 'text-stone-100 bg-black rounded-3xl outline-4 outline-black/20 overflow-hidden'
 	}}>
-
 	</MotionBox>
 
 	let prompt_box = <MotionBox classNames={{
@@ -84,12 +83,9 @@ export default function TuneModal() {
 
 
 	return <>
-
-
 		{p_prompt_box}
 		{prompt_box}
 		{n_prompt_box}
-
 
 		<MotionBox classNames={{
 			placeholder: 'w-[5em] h-[5em]',
@@ -101,8 +97,6 @@ export default function TuneModal() {
 			</div>
 		</MotionBox>
 
-
-
 		<MotionBox classNames={{
 			placeholder: 'w-[5em] h-[5em]',
 			position: isLoading ? 'fixed top-[40em]  left-1/2' : 'fixed top-[40em] left-1/2 -translate-x-[14em] w-14 h-14',
@@ -112,7 +106,5 @@ export default function TuneModal() {
 				<X className='w-9' />
 			</div>
 		</MotionBox>
-
-
 	</>
 }

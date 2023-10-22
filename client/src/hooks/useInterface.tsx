@@ -68,6 +68,7 @@ export default function useInterface() {
 	}, [provider])
 
 	return {
+		datasets,
 		setIsFetchingData,
 		isFetchingData,
 		tuneDataObject
