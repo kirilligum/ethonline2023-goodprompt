@@ -9,10 +9,11 @@ let ipfsGateway = 'https://moccasin-improved-flea-785.mypinata.cloud'
 
 
 
-export default function useContract() {
+export default function useInterface() {
 	const { isLoading, safeAddress, provider } = useSafe()
 	const [isFetchingData, setIsFetchingData] = useState(true)
 	const [contract, setContract] = useState(null)
+	const [datasets, setDatasets] = useState([])
 
 	function tuneDataObject() {
 
@@ -20,29 +21,33 @@ export default function useContract() {
 
 	useEffect(() => {
 		if (!contract) return;
-		console.log("TEST", contract)
 		async function fetchDatasets() {
-			let obj_count = await contract.getHashCount()
+			let obj_count = await contract.getDatasetCount()
 			let objects = []
 			objects.length = obj_count.toNumber()
-			console.log('length', objects)
-
-
 			let datasets = await Promise.map(objects, async (item, index) => {
-				console.log(index)
-				let res = await contract.retrieveHashAndOwner(index);
+				let res = await contract.retrieveDatasetAndSponsor(index);
 				let hash = res[0];
-				let owner = res[1];
+				let sponsor = res[1];
 				const response = await fetch(ipfsGateway + `/ipfs/${hash}`);
-				console.log(response)
-				const dataset = await response.json();
+
+				let body = await response.text()
+				let dataset = null
+
+				try {
+					dataset = JSON.parse(`${body.trim()}`)
+				} catch (e) {
+					console.error('invalid dataset')
+				}
+
 				return {
-					sponsor: owner,
+					sponsor: sponsor,
 					dataset: dataset
 				}
 			})
 
 			console.log('DATASETS', datasets);
+			setDatasets(datasets)
 		}
 
 		fetchDatasets();
@@ -51,7 +56,6 @@ export default function useContract() {
 
 	useEffect(() => {
 		if (!provider) return
-		console.log("PROVIDER", provider)
 		let contract = new ethers.Contract(contractAddress, GoodpromptRegistry.abi, provider);
 		setContract(contract);
 	}, [provider])

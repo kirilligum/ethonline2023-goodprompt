@@ -22,7 +22,9 @@ async function uploadToPinata() {
 			name: 'data.json',
 		}
 	})
-	const methodCall = contract.methods.submitDataset('QmUStpAPwfPr2dYNLtvWzQD1UgsHmozD8ubEgeC4xPfmSN'); // Replace with your method and parameters
+
+	// console.log(res)
+	let methodCall = contract.methods.submitDataset(res.IpfsHash); // Replace with your method and parameters
 	const encodedABI = methodCall.encodeABI();
 
 	const balance = await web3.eth.getBalance(process.env.WALLET_ADDRESS);
@@ -34,6 +36,10 @@ async function uploadToPinata() {
 		data: encodedABI,
 		from: process.env.WALLET_ADDRESS,
 	};
+
+	let getDatasetCount = await contract.methods.getDatasetCount().call();
+	console.log('Dataset count:', getDatasetCount);
+
 
 	const signedTx = await web3.eth.accounts.signTransaction(tx, process.env.PRIVATE_KEY);
 	const receipt = await web3.eth.sendSignedTransaction(signedTx.rawTransaction);

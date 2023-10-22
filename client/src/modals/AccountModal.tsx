@@ -11,6 +11,7 @@ function trimAddress(address) {
 export default function AccountModal({ isActive, classNames = {}, setAuth }) {
 
   const { isLoading, safeAddress } = useSafe()
+  console.log('isLoading?', isLoading)
 
   return <MotionBox classNames={{
     placeholder: 'w-[5em] h-20',
@@ -18,8 +19,8 @@ export default function AccountModal({ isActive, classNames = {}, setAuth }) {
     box: 'text-stone-100 bg-stone-900 rounded-3xl outline-4 outline-black/20 cursor-pointer hover:bg-stone-800 hover:outline overflow-hidden'
   }}>
     <div className='w-full h-full flex items-center justify-center'>
-      {isLoading && <StatusDot status={'loading'} className='w-6 h-6' />}
-      {safeAddress && ('safe: ' + trimAddress(safeAddress))}
+      {isLoading ? <StatusDot status={'loading'} className='w-6 h-6' /> : null}
+      {safeAddress ? ('safe: ' + trimAddress(safeAddress)) : null}
     </div>
   </MotionBox>
 }
