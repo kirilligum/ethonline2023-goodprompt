@@ -15,7 +15,12 @@ export default function useInterface() {
 	const [contract, setContract] = useState(null)
 	const [datasets, setDatasets] = useState([])
 
-	function tuneDataObject() {
+	function tuneDataObject(object) {
+		//upload to ipfs
+
+		//safe to localstorage
+
+		//update state
 
 	}
 
