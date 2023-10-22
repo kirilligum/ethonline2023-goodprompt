@@ -82,3 +82,9 @@ Tokens:
 | ApeCoin | 3000         | consumer or innovative use case            |
 | connext | 1500         | deploy and use xerc20 (extension of erc20) |
 
+
+.env file in root for deploying smart contract - 
+PRIVATE_KEY= (dataset owner address)
+ALCHEMY_API_KEY=RHhC7o6uOWm8N0q7zLHJKpwkMZoiKyUG
+CONTRACT_ADDRESS=0xb3fBCd330499d12C91e30D6e5118e74B355ca135
+WALLET_ADDRESS=0x61bbB116879ac169A8D50d20E1E9867Ead619BCC
