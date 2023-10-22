@@ -22,7 +22,7 @@ async function uploadToPinata() {
 			name: 'data.json',
 		}
 	})
-	const methodCall = contract.methods.storeHash('QmUStpAPwfPr2dYNLtvWzQD1UgsHmozD8ubEgeC4xPfmSN'); // Replace with your method and parameters
+	const methodCall = contract.methods.submitDataset('QmUStpAPwfPr2dYNLtvWzQD1UgsHmozD8ubEgeC4xPfmSN'); // Replace with your method and parameters
 	const encodedABI = methodCall.encodeABI();
 
 	const balance = await web3.eth.getBalance(process.env.WALLET_ADDRESS);
